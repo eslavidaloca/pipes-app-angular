@@ -11,6 +11,8 @@ export class OrderComponent {
   public isUpperCase: boolean = false;
   public orderBy: keyof Hero | undefined | '' = ''
 
+  public sortReversed: boolean = false;
+
   public heroes: Hero[] = [
     {
       name: 'Superman',
@@ -39,6 +41,7 @@ export class OrderComponent {
   }
 
   changeOrder( value: keyof Hero ) {
+    if ( this.orderBy === value ) this.sortReversed = !this.sortReversed;
     this.orderBy = value;
   }
 
